@@ -7,8 +7,11 @@ class Admin::ContentController < Admin::BaseController
   cache_sweeper :blog_sweeper
 
   def merge
-    article = Article.find(params[:id])
-    article.merge_with(params[:merge_with])
+    article_id = params[:merge_with]
+    if Article.exists?(article_id)
+      article = Article.find(params[:id])
+      article.merge_with(article_id)
+    end
     redirect_to :action => 'index'
   end
 
