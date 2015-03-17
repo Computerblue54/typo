@@ -1,4 +1,4 @@
-Feature: Write Articles
+  Feature: Write Articles
   As a blog administrator
   In order to share my thoughts with the world
   I want to be able to add articles to my blog
@@ -17,3 +17,10 @@ Feature: Write Articles
     Then I should see "Foobar"
     When I follow "Foobar"
     Then I should see "Lorem Ipsum"
+
+  Scenario: Write 2 articles
+    Given I create the article "test" with content "testing"
+    And I create the article "test2" with content "testing testing"
+    And I go to the home page
+    Then I should see "test"
+    And I should see "test2"
