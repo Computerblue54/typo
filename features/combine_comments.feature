@@ -18,4 +18,3 @@ Feature: Combine comments after merge
     Then I should see "By Ken"
     And I should not see "By Kishan"
     And I should see "howdy"
-    And I should see "partner"
