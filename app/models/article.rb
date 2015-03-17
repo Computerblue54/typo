@@ -75,6 +75,7 @@ class Article < Content
     merge_with = Article.find(article_id)
     self.comments += merge_with.comments.clone
     self.body = self.body + merge_with.body
+    merge_with = Article.find(article_id)
     self.save
     merge_with.destroy
   end
