@@ -76,7 +76,7 @@ class Article < Content
     self.comments += merge_with.comments.clone
     self.body = self.body + merge_with.body
     self.save
-    merge_with.destroy
+    merge_with.destroy!
   end
 
   def set_permalink
