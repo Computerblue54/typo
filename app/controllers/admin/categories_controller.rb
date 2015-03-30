@@ -1,10 +1,16 @@
 class Admin::CategoriesController < Admin::BaseController
   cache_sweeper :blog_sweeper
 
-  def index; redirect_to :action => 'new' ; end
+  def index
+    puts(params)
+    puts('ODOIQOWIJDWJIOQ')
+    puts(@categories)
+    redirect_to :action => 'new'
+  end
+
   def edit; new_or_edit;  end
 
-  def new 
+  def new
     respond_to do |format|
       format.html { new_or_edit }
       format.js { 
@@ -25,8 +31,8 @@ class Admin::CategoriesController < Admin::BaseController
 
   def new_or_edit
     @categories = Category.find(:all)
-    @category = Category.find(params[:id])
-    @category.attributes = params[:category]
+    #@category = Category.find(params[:id])
+    #@category.attributes = params[:category]
     if request.post?
       respond_to do |format|
         format.html { save_category }
